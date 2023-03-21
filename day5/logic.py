@@ -1,9 +1,10 @@
-from model import employees
-def get_employee_details(emp_no):
-    if emp_no in employees:
-        return str(employees[emp_no])
+from model import employees, EmployeeStatus
+def get_employee_details(n):
+
+    if employees.get(n) is not None:
+        return EmployeeStatus(1, "Found", employees[n])
     else:
-        return "Employee not found"
+        return EmployeeStatus(0, "Not Found", None)
 
 def get_employees_by_dept_id(dept_id, employees):
     dept_employees = []
